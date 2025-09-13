@@ -3,112 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alphabase - Database Management Solution</title>
+    <title>Alphabase One - Effortless Sales Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
-        
-        .header {
+        .hero {
+            background: #f8f9fa;
+            padding: 4rem 2rem;
             text-align: center;
-            margin-bottom: 40px;
         }
-        
-        .features, .why-choose, .specialized {
-            margin-bottom: 30px;
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
         }
-        
-        .feature-list, .benefits-list {
-            list-style: none;
-            padding: 0;
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 1rem auto;
         }
-        
-        .feature-item, .benefit-item {
-            margin-bottom: 15px;
-            padding-left: 25px;
-            position: relative;
+        .section {
+            padding: 4rem 2rem;
         }
-        
-        .feature-item:before {
-            content: "✨";
-            position: absolute;
-            left: 0;
-        }
-        
-        .benefit-item:before {
-            content: "✅";
-            position: absolute;
-            left: 0;
-        }
-        
-        .contact {
+        .section-title {
             text-align: center;
-            background-color: #f5f5f5;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 40px;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+        .feature-card {
+            border: none;
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .footer {
+            background: #343a40;
+            color: white;
+            padding: 3rem 1rem;
+        }
+        .footer a {
+            color: #f8f9fa;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>🎉 Alphabase - Your Ultimate Database Management Solution 🎉</h1>
-        <p>Looking for a smart and easy-to-use system to manage your business operations? Alphabase is here to simplify all your business tasks!</p>
-    </div>
 
-    <div class="features">
-        <h2>✨ Key Features:</h2>
-        <ul class="feature-list">
-            <li class="feature-item">Dual Currency Support: Seamlessly manage sales and purchases in both dinar and dollar.</li>
-            <li class="feature-item">Flexible Payment Options: Sell with cash, credit, or installment plans effortlessly.</li>
-            <li class="feature-item">Sales Representatives: Empower your team with a dedicated system for sales representatives.</li>
-            <li class="feature-item">Customer & Supplier Accounts: Easily track customer purchases, outstanding debts, and payments.</li>
-            <li class="feature-item">Expiry Alerts: Get notified about products nearing their expiration date.</li>
-            <li class="feature-item">Employee Permissions: Customize access for each employee, ensuring they only see what they need.</li>
-        </ul>
-        <p><strong>Alphabase brings all the tools you need into one powerful platform!</strong></p>
-    </div>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container">
+            <!-- Replace with your logo -->
+            <a class="navbar-brand" href="#">
+                <img src="https://placehold.co/150x50?text=Alphabase+One" alt="Alphabase One Logo" style="height: 40px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <div class="why-choose">
-        <h2>Why Choose Alphabase?</h2>
-        <ul class="benefits-list">
-            <li class="benefit-item">Comprehensive Reporting: Detailed insights into daily, monthly, and annual sales, purchases, profits, and losses.</li>
-            <li class="benefit-item">Multi-Barcode Support: Add up to 10 barcodes for products with multiple identifiers.</li>
-            <li class="benefit-item">Automatic Backups: Secure your data with easy and robust backup solutions.</li>
-            <li class="benefit-item">User-Friendly Interface: Simple and intuitive design for quick adoption.</li>
-            <li class="benefit-item">Customizable Permissions: Control what each user can access and manage.</li>
-            <li class="benefit-item">Retail & Wholesale Support: Manage retail, wholesale, installment, and discount sales effortlessly.</li>
-        </ul>
-    </div>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <h1>Alphabase One</h1>
+            <p>Effortless Sales Management for Every Business. A comprehensive JavaFX-based sales management application designed for retail operations.</p>
+            <a href="#features" class="btn btn-primary btn-lg">Learn More</a>
+        </div>
+    </header>
 
-    <div class="specialized">
-        <h2>Specialized Features:</h2>
-        <ul class="feature-list">
-            <li class="feature-item">Supplier & Customer Management: Track supplier debts, customer credits, and generate detailed reports.</li>
-            <li class="feature-item">Inventory Control: Monitor stock levels, expiration dates, and product performance.</li>
-            <li class="feature-item">Printing & Backup: Print beautiful invoices and ensure data safety with automatic backups.</li>
-        </ul>
-    </div>
+    <main>
+        <!-- Features Section -->
+        <section id="features" class="section">
+            <div class="container">
+                <h2 class="section-title">Features</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card feature-card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Multi-Language Support</h5>
+                                <p class="card-text">Supports Kurdish, Arabic, and English for a diverse user base.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card feature-card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Inventory Management</h5>
+                                <p class="card-text">Complete stock control with warehouse support and barcode integration.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card feature-card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Sales & Financials</h5>
+                                <p class="card-text">Comprehensive sales tracking, analytics, and detailed financial reporting.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card feature-card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Customer & Supplier Management</h5>
+                                <p class="card-text">Track customer history and manage supplier relationships seamlessly.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card feature-card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Advanced Services</h5>
+                                <p class="card-text">Includes workflows for service-based tasks like computer or car repair.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card feature-card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Modern & Secure</h5>
+                                <p class="card-text">Features a modern UI, automatic updates, and robust data backup/restore functionality.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <p class="conclusion">Alphabase is the all-in-one solution for businesses of all sizes, designed to streamline your operations and boost productivity.</p>
+        <!-- About Section -->
+        <section id="about" class="section bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <!-- Replace with an image of your application -->
+                        <img src="https://placehold.co/600x400?text=Alphabase+One+Screenshot" class="img-fluid rounded shadow" alt="Alphabase One Application Screenshot">
+                    </div>
+                    <div class="col-md-6">
+                        <h2 class="section-title text-start">About Alphabase One</h2>
+                        <p>AlphaBase One is a comprehensive JavaFX-based sales management application designed for retail operations. It provides complete business management capabilities including inventory management, customer relationships, supplier management, sales tracking, and financial reporting.</p>
+                        <p>Built with a modern UI and a modular design, it is cross-platform and works on Windows, macOS, and Linux.</p>
+                        <h5>System Requirements</h5>
+                        <ul>
+                            <li><strong>OS:</strong> Windows 10+, macOS 10.14+, or Linux</li>
+                            <li><strong>Java:</strong> JDK 11 or higher</li>
+                            <li><strong>Database:</strong> MySQL 5.7+ or MariaDB 10.2+</li>
+                            <li><strong>Memory:</strong> 4GB RAM (8GB recommended)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <div class="contact">
-        <h2>📞 Contact us today to get started!</h2>
-        <p>Phone: <a href="tel:+9647503287900">0750 328 7900</a></p>
-        <p>Let Alphabase transform the way you manage your business!</p>
-    </div>
-
-    <footer style="text-align: center; margin-top: 40px; padding: 20px; border-top: 1px solid #eee;">
-        <p>
-            <a href="terms-of-service.html" style="color: #666; text-decoration: none; margin: 0 10px;">Terms of Service</a> | 
-            <a href="privacy-policy.html" style="color: #666; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
-        </p>
-        <p style="color: #888; font-size: 0.9em;">© 2024 Alphabase. All rights reserved.</p>
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4>Alphabase One</h4>
+                    <p>Empowering businesses with efficient sales management since 2021.</p>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4>Contact Us</h4>
+                    <p>Primary Phone: 0770 697 7873</p>
+                    <p>Secondary Phone: 0750 328 7900</p>
+                </div>
+                <div class="col-lg-4">
+                    <h4>Follow Us</h4>
+                    <a href="https://www.fb.com/alphabase.tech" target="_blank" class="p-2">Facebook</a>
+                    <a href="https://www.instagram.com/alphabase.tech" target="_blank" class="p-2">Instagram</a>
+                    <a href="https://www.tiktok.com/@alphabase.tech" target="_blank" class="p-2">TikTok</a>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="d-flex justify-content-center">
+                 <a href="terms-of-service.html" class="px-2">Terms of Service</a>
+                 <a href="privacy-policy.html" class="px-2">Privacy Policy</a>
+            </div>
+            <p class="mt-3">&copy; 2025 Alphabase. All Rights Reserved.</p>
+        </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
