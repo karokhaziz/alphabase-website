@@ -5,71 +5,356 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alphabase One - Effortless Sales Management</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary-color: #64748b;
+            --accent-color: #f59e0b;
+            --success-color: #10b981;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
         }
         .hero {
-            background: #f8f9fa;
-            padding: 4rem 2rem;
+            background: var(--bg-gradient);
+            padding: 8rem 2rem 6rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
         }
         .hero p {
-            font-size: 1.25rem;
-            max-width: 600px;
-            margin: 1rem auto;
+            font-size: 1.375rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.95;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .hero .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero .btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+            color: white;
+            box-shadow: var(--shadow-lg);
         }
         .section {
-            padding: 4rem 2rem;
+            padding: 6rem 2rem;
         }
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             font-weight: 700;
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4rem;
+            height: 0.25rem;
+            background: var(--bg-gradient);
+            border-radius: 2px;
         }
         .feature-card {
             border: none;
-            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
-            transition: transform 0.2s;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border-radius: 1rem;
+            background: white;
+            overflow: hidden;
+            position: relative;
         }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--bg-gradient);
+        }
+
         .feature-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-card .card-body {
+            padding: 2rem;
+        }
+
+        .feature-card .card-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .feature-card .card-text {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        .carousel-item img {
+            height: 65vh;
+            object-fit: cover;
+            border-radius: 0.75rem;
+        }
+
+        .gallery-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .carousel {
+            border-radius: 1rem;
+            overflow: hidden;
         }
         .footer {
-            background: #343a40;
+            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
             color: white;
-            padding: 3rem 1rem;
+            padding: 4rem 1rem 2rem;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
         }
         .footer a {
-            color: #f8f9fa;
+            color: #e5e7eb;
             text-decoration: none;
+            transition: all 0.3s ease;
         }
+
         .footer a:hover {
-            text-decoration: underline;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .footer h4 {
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -0.25rem;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Animation Classes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 6rem 1rem 4rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.125rem;
+            }
+
+            .section {
+                padding: 4rem 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .navbar-brand {
+                font-size: 1.25rem !important;
+            }
+
+            .footer {
+                padding: 3rem 1rem 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .hero .btn {
+                padding: 0.875rem 2rem;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
-<body>
+<body style="padding-top: 80px;">
 
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
         <div class="container">
-            <!-- Replace with your logo -->
-            <a class="navbar-brand" href="#">
-                <img src="src/assets/logo.png" alt="Alphabase One Logo" style="height: 40px;">
+            <a class="navbar-brand fw-bold" href="#" style="font-size: 1.5rem; color: var(--primary-color);">
+                <img src="src/assets/logo.png" alt="Alphabase One Logo" style="height: 40px; margin-right: 0.5rem;">
+                Alphabase One
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -77,10 +362,13 @@
 
     <!-- Hero Section -->
     <header class="hero">
-        <div class="container">
+        <div class="container hero-content">
             <h1>Alphabase One</h1>
             <p>Effortless Sales Management for Every Business. A comprehensive JavaFX-based sales management application designed for retail operations.</p>
-            <a href="#features" class="btn btn-primary btn-lg">Learn More</a>
+            <a href="#features" class="btn btn-primary btn-lg">
+                <i class="fas fa-rocket me-2"></i>
+                Discover Features
+            </a>
         </div>
     </header>
 
@@ -93,6 +381,9 @@
                     <div class="col-md-4">
                         <div class="card feature-card h-100">
                             <div class="card-body">
+                                <div class="mb-3">
+                                    <i class="fas fa-globe fa-2x" style="color: var(--primary-color);"></i>
+                                </div>
                                 <h5 class="card-title">Multi-Language Support</h5>
                                 <p class="card-text">Supports Kurdish, Arabic, and English for a diverse user base.</p>
                             </div>
@@ -101,6 +392,9 @@
                     <div class="col-md-4">
                         <div class="card feature-card h-100">
                             <div class="card-body">
+                                <div class="mb-3">
+                                    <i class="fas fa-boxes fa-2x" style="color: var(--primary-color);"></i>
+                                </div>
                                 <h5 class="card-title">Inventory Management</h5>
                                 <p class="card-text">Complete stock control with warehouse support and barcode integration.</p>
                             </div>
@@ -109,6 +403,9 @@
                     <div class="col-md-4">
                         <div class="card feature-card h-100">
                             <div class="card-body">
+                                <div class="mb-3">
+                                    <i class="fas fa-chart-line fa-2x" style="color: var(--primary-color);"></i>
+                                </div>
                                 <h5 class="card-title">Sales & Financials</h5>
                                 <p class="card-text">Comprehensive sales tracking, analytics, and detailed financial reporting.</p>
                             </div>
@@ -117,6 +414,9 @@
                     <div class="col-md-4">
                         <div class="card feature-card h-100">
                             <div class="card-body">
+                                <div class="mb-3">
+                                    <i class="fas fa-users fa-2x" style="color: var(--primary-color);"></i>
+                                </div>
                                 <h5 class="card-title">Customer & Supplier Management</h5>
                                 <p class="card-text">Track customer history and manage supplier relationships seamlessly.</p>
                             </div>
@@ -125,6 +425,9 @@
                     <div class="col-md-4">
                         <div class="card feature-card h-100">
                             <div class="card-body">
+                                <div class="mb-3">
+                                    <i class="fas fa-tools fa-2x" style="color: var(--primary-color);"></i>
+                                </div>
                                 <h5 class="card-title">Advanced Services</h5>
                                 <p class="card-text">Includes workflows for service-based tasks like computer or car repair.</p>
                             </div>
@@ -133,6 +436,9 @@
                     <div class="col-md-4">
                         <div class="card feature-card h-100">
                             <div class="card-body">
+                                <div class="mb-3">
+                                    <i class="fas fa-shield-alt fa-2x" style="color: var(--primary-color);"></i>
+                                </div>
                                 <h5 class="card-title">Modern & Secure</h5>
                                 <p class="card-text">Features a modern UI, automatic updates, and robust data backup/restore functionality.</p>
                             </div>
@@ -142,25 +448,93 @@
             </div>
         </section>
 
+        <!-- Gallery Carousel Section -->
+        <section id="gallery" class="section">
+            <div class="container">
+                <h2 class="section-title">Gallery</h2>
+                <div class="gallery-container">
+                    <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                        </div>
+                        <div class="carousel-inner rounded">
+                            <div class="carousel-item active">
+                                <img src="src/assets/643shots_so.png" class="d-block w-100" alt="Gallery Image 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="src/assets/317shots_so.png" class="d-block w-100" alt="Gallery Image 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="src/assets/864shots_so.png" class="d-block w-100" alt="Gallery Image 3">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="src/assets/dark-mode.png" class="d-block w-100" alt="Gallery Image 4">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="src/assets/492shots_so.png" class="d-block w-100" alt="Gallery Image 5">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="src/assets/677shots_so.png" class="d-block w-100" alt="Gallery Image 6">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- About Section -->
-        <section id="about" class="section bg-light">
+        <section id="about" class="section" style="background: var(--bg-light);">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6">
-                        <!-- Replace with an image of your application -->
-                        <img src="src/assets/677shots_so.png" class="img-fluid rounded shadow" alt="Alphabase One Application Screenshot">
+                        <img src="src/assets/677shots_so.png" class="img-fluid rounded-3 shadow-lg" alt="Alphabase One Application Screenshot" style="border-radius: 1rem !important;">
                     </div>
                     <div class="col-md-6">
                         <h2 class="section-title text-start">About Alphabase One</h2>
                         <p>AlphaBase One is a comprehensive JavaFX-based sales management application designed for retail operations. It provides complete business management capabilities including inventory management, customer relationships, supplier management, sales tracking, and financial reporting.</p>
                         <p>Built with a modern UI and a modular design, it is cross-platform and works on Windows, macOS, and Linux.</p>
-                        <h5>System Requirements</h5>
-                        <ul>
-                            <li><strong>OS:</strong> Windows 10+, macOS 10.14+, or Linux</li>
-                            <li><strong>Java:</strong> JDK 11 or higher</li>
-                            <li><strong>Database:</strong> MySQL 5.7+ or MariaDB 10.2+</li>
-                            <li><strong>Memory:</strong> 4GB RAM (8GB recommended)</li>
-                        </ul>
+                        <div class="mt-4">
+                            <h5 class="mb-3" style="color: var(--primary-color); font-weight: 600;">System Requirements</h5>
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-desktop text-primary me-3"></i>
+                                        <span><strong>OS:</strong> Windows 10+, macOS 10.14+, Linux</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fab fa-java text-primary me-3"></i>
+                                        <span><strong>Java:</strong> JDK 11 or higher</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-database text-primary me-3"></i>
+                                        <span><strong>Database:</strong> MySQL 5.7+ or MariaDB 10.2+</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-memory text-primary me-3"></i>
+                                        <span><strong>Memory:</strong> 4GB RAM (8GB recommended)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -182,9 +556,17 @@
                 </div>
                 <div class="col-lg-4">
                     <h4>Follow Us</h4>
-                    <a href="https://www.fb.com/alphabase.tech" target="_blank" class="p-2">Facebook</a>
-                    <a href="https://www.instagram.com/alphabase.tech" target="_blank" class="p-2">Instagram</a>
-                    <a href="https://www.tiktok.com/@alphabase.tech" target="_blank" class="p-2">TikTok</a>
+                    <div class="social-links">
+                        <a href="https://www.fb.com/alphabase.tech" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/alphabase.tech" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@alphabase.tech" target="_blank" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
             <hr class="my-4">
@@ -197,5 +579,52 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                }
+            });
+        }, observerOptions);
+
+        // Observe feature cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const featureCards = document.querySelectorAll('.feature-card');
+            featureCards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
 </body>
 </html>
